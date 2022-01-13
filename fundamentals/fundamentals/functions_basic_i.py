@@ -156,3 +156,5 @@ y = foo()
 print(y)
 # prediction: 1\n3\n (10 and 5 returned but do nothing)
 # reality: incorrect; 1 3 5 10 printed. Why?
+
+
