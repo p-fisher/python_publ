@@ -1,0 +1,75 @@
+-- select db to be used
+USE dojos_ninjas_schema;
+
+-- assess dojo table before working
+select * from dojos;
+
+-- created 3 new dojo records
+INSERT INTO dojos (name, created_at, updated_at)
+VALUES ("dojo_tiger", NOW(), NOW()), ("dojo_panda", NOW(), NOW()), ("dojo_monkey", NOW(), NOW());
+
+-- verify3 newly created are there
+select * from dojos;
+
+-- delete the 3 recs just created
+DELETE FROM dojos
+WHERE id between 1 AND 3;
+
+-- confirmed empty
+select * from dojos;
+
+-- create 3 more dojos
+INSERT INTO dojos (name, created_at, updated_at)
+VALUES ("dojo_snake", NOW(), NOW()), ("dojo_grasshopper", NOW(), NOW()), ("dojo_cheetah", NOW(), NOW());
+
+-- assess ninja table before use
+select * from ninjas;
+
+-- create 3 ninjas belonging to first dojo
+INSERT INTO ninjas (first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES ("Sam", "Spangle", 24, NOW(), NOW(), 4),
+("Kim", "Smart", 28, NOW(), NOW(), 4),
+("Gunther", "Jeebies", 29, NOW(), NOW(), 4);
+
+-- check 3 ninjas added
+select * from ninjas;
+
+-- create 3 ninjas belonging to second dojo
+INSERT INTO ninjas (first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES ("Tim", "Garghanaut", 19, NOW(), NOW(), 5),
+("Monty", "Cutestory", 31, NOW(), NOW(), 5),
+("Alice", "Peppers", 35, NOW(), NOW(), 5);
+
+-- check 3 ninjas added
+select * from ninjas;
+
+-- create 3 ninjas belonging to third dojo
+INSERT INTO ninjas (first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES ("Gi", "Fong", 33, NOW(), NOW(), 6),
+("Ted", "Spackling", 34, NOW(), NOW(), 6),
+("Ginger", "Cratchett", 27, NOW(), NOW(), 6);
+
+-- check 3 ninjas added
+select * from ninjas;
+
+-- retrieve all ninjas from first dojo
+SELECT * FROM ninjas
+WHERE dojo_id = 4;
+
+-- retrieve all ninjas from last dojo
+SELECT * FROM ninjas
+WHERE dojo_id = 6;
+
+-- retrieve last ninja's dojo (asks for just the dojo_id, oddly
+SELECT dojo_id FROM ninjas
+WHERE id = 12;
+-- or grabbing whole record...
+SELECT * from ninjas
+WHERE id = (SELECT MAX(id) FROM ninjas);
+
+
+--
+-- tinkering
+SELECT * FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+WHERE dojos.id = 6;

@@ -1,0 +1,33 @@
+
+-- start exercise by selecting db
+USE users_schema;
+
+-- grab quick look at schema for reference
+SELECT * from users;
+
+-- add 3 users
+INSERT INTO users (first_name, last_name, email, created_at, updated_at)
+VALUES ("Bob", "Smith", "bsmith@mail.mail", NOW(), NOW()), ("Sally", "Smith", "sally_smith@mail.mail", NOW(), NOW()), ("Tom", "Johnson", "tjohns@mail.mail", NOW(), NOW());
+
+-- retrieve all users
+SELECT * from users;
+
+-- retrieve first user using their email address
+SELECT * FROM users
+WHERE email = "bsmith@mail.mail";
+
+-- select last user using their id
+SELECT * FROM users
+WHERE id = 3;
+
+-- delete user with id 2 from db
+DELETE FROM users
+WHERE id = 2;
+
+-- get all users sorted by first_name
+SELECT * from users
+ORDER BY first_name ASC;
+
+-- get all users sorted by first_name in descending order
+SELECT * from users
+ORDER BY first_name DESC;

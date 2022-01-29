@@ -1,0 +1,12 @@
+USE twitter;
+
+SELECT * FROM users;
+
+DELETE FROM users
+WHERE id = 6;
+
+INSERT INTO users (first_name, last_name, handle, birthday, created_at, updated_at)
+VALUES ("James", "Kirk", "the_captain", "1966-09-08", "2022-01-28 00:00:01", "2022-01-28 00:00:01");
+
+UPDATE users SET handle = "captain"
+WHERE id = 7;
