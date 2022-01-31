@@ -1,0 +1,115 @@
+-- set correct db for work
+USE books_schema;
+
+-- check authors table prior to work
+SELECT * from authors;
+
+-- create 5 diff authors
+INSERT INTO authors (created_at, updated_at, name)
+VALUES (NOW(), NOW(),"Jane Austen"),
+(NOW(), NOW(),"Emily Dickinon"),
+(NOW(), NOW(),"Fyodor Dostoevsky"),
+(NOW(), NOW(),"William Shakespeare"),
+(NOW(), NOW(),"Lau Tzu");
+
+-- check authors entry as assigned
+SELECT * from authors;
+
+-- check books table prior to entry
+SELECT * FROM books;
+
+-- create 5 books with names as prescribed
+INSERT INTO books (created_at, updated_at, title, num_of_pages)
+VALUES (NOW(), NOW(), "C Sharp",  695),
+(NOW(), NOW(), "Java",  895),
+(NOW(), NOW(), "Python",  400),
+(NOW(), NOW(), "PHP",  450),
+(NOW(), NOW(), "Ruby",  600);
+
+-- check work
+SELECT * FROM books;
+
+-- change C Sharp book title
+UPDATE books
+SET title = "C#"
+WHERE title LIKE "C Sh%";
+
+-- check work
+SELECT * FROM books;
+
+-- error so try
+SET SQL_SAFE_UPDATES = 0; -- worked
+
+-- check authors before working
+SELECT * from authors;
+
+-- change 4th author to Bill
+UPDATE authors 
+SET name = "Bill Shakespeare"
+WHERE name LIKE "%Shakes%";
+
+-- check work
+SELECT * FROM authors;
+
+-- have 1st author favorite 1st two books
+INSERT INTO favorites (author_id,book_id)
+VALUES (1,1),(1,2);
+
+-- check work
+SELECT * FROM favorites;
+
+-- have 2nd author fav 1st three books
+INSERT INTO favorites (author_id,book_id)
+VALUES (2,1),(2,2),(2,3);
+
+-- check work
+SELECT * FROM favorites;
+
+-- have 3rd author fav 1st four books
+INSERT INTO favorites (author_id,book_id)
+VALUES (3,1),(3,2),(3,3),(3,4);
+
+-- check work
+SELECT * FROM favorites;
+
+-- have 4th author fav all books
+INSERT INTO favorites (author_id,book_id)
+VALUES (4,1),(4,2),(4,3),(4,4),(4,5);
+
+-- check work
+SELECT * FROM favorites;
+
+-- retrieve all authors who favorited third book
+SELECT DISTINCT name FROM authors
+JOIN favorites ON authors.id = favorites.author_id
+WHERE book_id = 3;
+
+-- remove first author of third book favs
+DELETE FROM favorites
+WHERE book_id = 3
+AND author_id = 2;
+
+-- check work
+SELECT * FROM favorites;
+
+-- add fifth author as another favoriting  2nd book
+INSERT INTO favorites (author_id, book_id)
+VALUES (5,2);
+
+-- check work
+SELECT * FROM favorites;
+
+-- find all books third author favorited
+SELECT * FROM favorites
+WHERE author_id = 3;
+-- or
+SELECT * FROM authors
+LEFT JOIN favorites ON authors.id = favorites.author_id
+JOIN books ON books.id = favorites.book_id
+WHERE author_id = 3;
+
+-- find all authors who favorited 5th book
+SELECT * FROM books
+LEFT JOIN favorites ON books.id = favorites.book_id
+JOIN authors ON authors.id = favorites.author_id
+WHERE books.id = 5;
