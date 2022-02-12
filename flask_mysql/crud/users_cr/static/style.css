@@ -1,0 +1,17 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 600px;
+}
+.split {
+    /* display: flex;
+    justify-content: space-evenly; */
+    margin: 10px;
+    width:400px;
+    background-color: lavender;
+}
+.subsplit {
+    border: solid black 1px;
+    width: 100%;
+}
