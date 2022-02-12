@@ -5,13 +5,19 @@
     width: 600px;
 }
 .split {
-    /* display: flex;
-    justify-content: space-evenly; */
     margin: 10px;
-    width:400px;
-    background-color: lavender;
+    width:300px;
+    /* background-color: lavender; */
 }
 .subsplit {
     border: solid black 1px;
-    width: 100%;
+    width: 90%;
+    padding: 10px;
+}
+#name_form {
+    display: flex;
+    justify-content: flex-start;
+}
+#name_form form {
+    margin-left: 10px;
 }
