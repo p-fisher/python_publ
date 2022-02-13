@@ -8,6 +8,30 @@
     <title>New Ninja</title>
 </head>
 <body>
-    
+    <div class="split">
+        <h1>New Ninja</h1>
+        <div id="name_form">
+            <div>Dojo:</div>
+            <div>First Name:</div>
+            <div>Last Name:</div>
+            <div>Age:</div>
+            <div>
+                <form action="/new_ninja" method="POST">
+                    <!-- <label for="name">Name:</label> -->
+                    <select name="dojo" id="dojo">
+                        {% for dojo in all_dojos %}
+                        <option value="{{dojo.id}}">{{dojo.name}}</option>
+                        {% endfor %}
+                    </select>    
+                    <p><input type="text" name="first_name"/></p>
+                    <p><input type="text" name="last_name"/></p>
+                    <p><input type="text" name="age"/></p>
+                    <p><input type="submit" value="Create"/></p>
+                </form>
+            </div>
+        </div>
+        <a href="/dojos">Home</a>
+    </div>
+
 </body>
 </html>

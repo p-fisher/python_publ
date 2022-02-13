@@ -8,6 +8,22 @@
     <title>Dojo Show</title>
 </head>
 <body>
-    
+    <h1>{{dojos.name}}</h1>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            {% for ninja in ninjas %}
+        <td>{{ninjas.first_name}}</td>
+        <td>{{ninjas.last_name}}</td>
+        <td>{{ninjas.age}}</td>
+            {% endfor %}
+        </tr>
+        </tr>
+    </table>
+    <a href="/dojos">Home</a>
 </body>
 </html>

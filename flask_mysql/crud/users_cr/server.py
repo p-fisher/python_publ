@@ -15,13 +15,23 @@ def show_dojos():
     print(dojos)
     return render_template('dojos.html', all_dojos = dojos)
 
-@app.route('/ninjas')
-def show_ninjas():
-    pass
 
 @app.route('/dojos/<int:num>')
-def detail_dojo():
-    pass
+def detail_dojo(num):
+    id = {
+        "id": num
+    }
+    this_dojo = Dojo.get_one_id(id)
+    return render_template("dojo_show.html", dojos = this_dojo)
+
+
+@app.route('/ninjas')  # CLEAN THIS OUT: LIKELY MISGUIDED BUT WRONG ANYWAY
+def show_ninjas():
+    ninjas = Ninja.get_all()
+    dojos = Dojo.get_all()
+    print(ninjas)
+    return render_template('ninjas.html', all_ninjas = ninjas, all_dojos = dojos)
+
 
 @app.route('/new_dojo', methods=['POST'])
 def new_dojo():
@@ -34,6 +44,22 @@ def new_dojo():
     Dojo.create(data)
     # Don't forget to redirect after saving to the database.
     return redirect('/dojos')
+
+
+@app.route('/new_ninja', methods=['POST'])
+def new_ninja():
+    # First we make a data dictionary from our request.form coming from our template.
+    # The keys in data need to line up exactly with the variables in our query string.
+    data = {
+        "dojo": request.form["dojo"],
+        "first_name": request.form["first_name"],
+        "last_name": request.form["last_name"],
+        "age": request.form["age"],
+    }
+    # We pass the data dictionary into the save method from the Friend class.
+    Ninja.create(data)
+    # Don't forget to redirect after saving to the database.
+    return redirect('/ninjas')
 
 
 @app.errorhandler(404)

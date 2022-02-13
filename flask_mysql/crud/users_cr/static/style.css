@@ -2,11 +2,11 @@
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    width: 600px;
+    width: 800px;
 }
 .split {
     margin: 10px;
-    width:300px;
+    width:400px;
     /* background-color: lavender; */
 }
 .subsplit {
