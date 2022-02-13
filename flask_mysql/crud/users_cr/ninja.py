@@ -1,5 +1,6 @@
 # import the function that will return an instance of a connection
 from mysqlconnection import connectToMySQL
+
 # model the class after the friend table from our database
 class Ninja:
     def __init__( self , data ):
@@ -9,6 +10,7 @@ class Ninja:
         self.age = data['age']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.dojo_id = data['dojo_id']
 
     # # Now we use class methods to query our database
     @classmethod
@@ -25,27 +27,6 @@ class Ninja:
     
     @classmethod
     def create(cls, data ):
-        query = "INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at ) VALUES ( %(first_name)s, %(last_name)s, %(age)s, %(dojo_id)s, NOW(), NOW() );"
+        query = "INSERT INTO ninjas ( first_name, last_name, age, created_at, updated_at, dojo_id ) VALUES ( %(first_name)s, %(last_name)s, %(age)s, NOW(), NOW(), %(dojo_id)s );"
         # data is a dictionary that will be passed into the save method from server.py
         return connectToMySQL('dojos_ninjas_schema').query_db( query, data )
-
-
-"""    def __init__( self , data ):
-        self.id = data['id']
-        self.first_name = data['first_name']
-        self.last_name = data['last_name']
-        self.occupation = data['occupation']
-        self.created_at = data['created_at']
-        self.updated_at = data['updated_at']
-    # Now we use class methods to query our database
-    @classmethod
-    def get_all(cls):
-        query = "SELECT * FROM friends;"
-        # make sure to call the connectToMySQL function with the schema you are targeting.
-        results = connectToMySQL('first_flask').query_db(query)
-        # Create an empty list to append our instances of friends
-        friends = []
-        # Iterate over the db results and create instances of friends with cls.
-        for friend in results:
-            friends.append( cls(friend) )
-        return friends"""
