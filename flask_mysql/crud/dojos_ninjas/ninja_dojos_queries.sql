@@ -10,5 +10,5 @@ UPDATE dojos SET name = 'cheetah_dojo' WHERE id = 6;
 
 DELETE FROM dojos WHERE id=7;
 
-SELECT * FROM dojos JOIN ninjas ON dojos.id=ninjas.dojo_id WHERE dojos.id=8;
+SELECT * FROM dojos LEFT JOIN ninjas ON dojos.id=ninjas.dojo_id;
 
