@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 800px;
+}
+.split {
+    margin: 10px;
+    width:400px;
+    /* background-color: lavender; */
+}
+.subsplit {
+    border: solid black 1px;
+    width: 90%;
+    padding: 10px;
+}
+#name_form {
+    display: flex;
+    justify-content: flex-start;
+}
+#name_form form {
+    margin-left: 10px;
+}
