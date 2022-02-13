@@ -21,21 +21,11 @@
             <td>a</td>
             <td>b</td>
             <td>c</td>
-            {% for ninja in all_ninjas %}
-            <tr>
-                <td>{{dojo.ninjas.first_name}}</td>
-                <td>{{dojo.ninjas.last_name}}</td>
-                <td>{{dojo.ninjas.age}}</td>
-            </tr>
+            {% for ninjas in dojo.ninjas %}
             <tr>
                 <td>{{ninjas.first_name}}</td>
                 <td>{{ninjas.last_name}}</td>
                 <td>{{ninjas.age}}</td>
-            </tr>
-            <tr>
-                <td>{{this_ninja.first_name}}</td>
-                <td>{{this_ninja.last_name}}</td>
-                <td>{{this_ninja.age}}</td>
             </tr>
             {% endfor %}
         </table>
