@@ -11,16 +11,17 @@
     <div class="split">
         <h1>New Ninja</h1>
         <div id="name_form">
-            <div>Dojo:</div>
-            <div>First Name:</div>
-            <div>Last Name:</div>
-            <div>Age:</div>
+            <div>
+                <p>Dojo:</p>
+                <p>First Name:</p>
+                <p>Last Name:</p>
+                <p>Age:</p>
             <div>
                 <form action="/new_ninja" method="POST">
                     <!-- <label for="name">Name:</label> -->
-                    <select name="dojo" id="dojo">
+                    <select name="dojo_id" id="dojo_id">
                         {% for dojo in all_dojos %}
-                        <option value="{{dojo_id}}">{{dojo.name}}</option>
+                        <option value="{{dojo.id}}">{{dojo.name}}</option>
                         {% endfor %}
                         </select>    
                     <p><input type="text" name="first_name"/></p>

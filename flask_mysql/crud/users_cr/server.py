@@ -51,7 +51,7 @@ def new_ninja():
     # First we make a data dictionary from our request.form coming from our template.
     # The keys in data need to line up exactly with the variables in our query string.
     data = {
-        "dojo": request.form["dojo"],
+        "dojo_id": request.form["dojo_id"],
         "first_name": request.form["first_name"],
         "last_name": request.form["last_name"],
         "age": request.form["age"],
