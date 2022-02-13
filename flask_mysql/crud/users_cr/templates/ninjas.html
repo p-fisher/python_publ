@@ -20,9 +20,9 @@
                     <!-- <label for="name">Name:</label> -->
                     <select name="dojo" id="dojo">
                         {% for dojo in all_dojos %}
-                        <option value="{{dojo.id}}">{{dojo.name}}</option>
+                        <option value="{{dojo_id}}">{{dojo.name}}</option>
                         {% endfor %}
-                    </select>    
+                        </select>    
                     <p><input type="text" name="first_name"/></p>
                     <p><input type="text" name="last_name"/></p>
                     <p><input type="text" name="age"/></p>

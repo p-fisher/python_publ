@@ -22,10 +22,10 @@ def detail_dojo(num):
         "id": num
     }
     this_dojo = Dojo.get_one_id(id)
-    return render_template("dojo_show.html", dojos = this_dojo)
+    return render_template("dojo_show.html", dojo = this_dojo)
 
 
-@app.route('/ninjas')  # CLEAN THIS OUT: LIKELY MISGUIDED BUT WRONG ANYWAY
+@app.route('/ninjas')
 def show_ninjas():
     ninjas = Ninja.get_all()
     dojos = Dojo.get_all()

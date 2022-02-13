@@ -33,7 +33,7 @@ class Dojo:
 
     @classmethod
     def get_one_id(cls, data ):
-        query = "SELECT * FROM dojos JOIN ninjas ON dojos.id=ninjas.dojo_id WHERE dojos.id=%(id)s;"
+        query = "SELECT * FROM dojos LEFT JOIN ninjas ON dojos.id=ninjas.dojo_id WHERE dojos.id=%(id)s;"
         # data is a dictionary that will be passed into the save method from server.py
         results = connectToMySQL('dojos_ninjas_schema').query_db( query, data )
 
