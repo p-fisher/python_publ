@@ -8,11 +8,21 @@
             rel="stylesheet"
             href="{{ url_for('static', filename='style.css') }}"
         />
-        <title>Read (All)</title>
+        <title>Read (One)</title>
     </head>
     <body>
         <!-- <div id="test">a test for CSS</div> -->
-        <h1>All Users</h1>
+        <div class="splitter">
+            <div id="pagehead">
+                <h1>Add a New User</h1>
+            </div>
+            <div>
+                <a href="/users">Home</a>
+            </div>
+        </div>
+        <h1>User {{user.id}}</h1>
+        <div></div>
+
         <table>
             <tr>
                 <th>ID</th>

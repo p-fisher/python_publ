@@ -24,6 +24,18 @@ def create():
 def index():
     return redirect('/users')
 
+#fix these 2 v v
+@app.route('/read_one')
+def read_user():
+    pass
+    return render_template('Read-One.html')
+
+@app.route('/edit_one')
+def edit_one():
+    pass
+
+
+
 
 @app.errorhandler(404)
 def not_found(e): # inbuilt function which takes error as parameter
