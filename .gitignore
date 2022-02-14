@@ -7,3 +7,8 @@ flask/.DS_Store
 .DS_Store
 .DS_Store
 flask_mysql/.DS_Store
+flask_mysql/.DS_Store
+.DS_Store
+.DS_Store
+flask_mysql/crud/users_cr/Pipfile.lock
+flask_mysql/crud/users_cr/Pipfile
