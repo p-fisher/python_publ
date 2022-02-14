@@ -1,0 +1,58 @@
+* { /* Universal Reset from Jeff Starr */
+    vertical-align: top;
+    /* font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: 100%; */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+}
+table {
+    width:65%;
+    margin:20px 0;
+    border: 1px solid black;
+}
+td,th {
+    text-align:left;
+}
+tr{
+    line-height: 20px;
+}
+tr:nth-child(even) {
+    background-color:antiquewhite ;
+}
+#pagehead {
+    width: 35%;
+}
+/* #test {
+    font-weight: 900;
+    color: red;
+    background-color: gray;
+} */
+.splitter {
+    display: flex;
+    flex: 2;
+    /* justify-content: space-evenly; */
+    height:50px;
+    line-height: 50px;
+}
+.form {
+    width: 40%;
+    display: flex;
+    margin-top:10px;
+    /* justify-content: space-between; */
+}
+.form_topics {
+    width: 25%;
+    line-height: 24px;
+    /* display: flex; */
+}
+.form_boxes {
+    flex-wrap: wrap;
+    line-height: 25px;
+}
+button {
+    margin-top: 10px;
+}

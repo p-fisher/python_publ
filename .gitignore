@@ -12,3 +12,5 @@ flask_mysql/.DS_Store
 .DS_Store
 flask_mysql/crud/users_cr/Pipfile.lock
 flask_mysql/crud/users_cr/Pipfile
+flask_mysql/crud/users_crud/Pipfile.lock
+flask_mysql/crud/users_crud/Pipfile
