@@ -1,0 +1,13 @@
+.wrapper {
+    width: 600px;
+    margin: 0 auto;
+    background-color:cadetblue;
+}
+tr:nth-child(even) {
+        background-color: #dddddd;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
