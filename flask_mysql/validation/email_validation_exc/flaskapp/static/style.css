@@ -1,7 +1,10 @@
 .wrapper {
     width: 600px;
+    height: auto;
     margin: 0 auto;
     background-color:cadetblue;
+    color: white;
+    text-align: center;
 }
 tr:nth-child(even) {
         background-color: #dddddd;
@@ -10,4 +13,22 @@ td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+}
+.warning {
+    width: 85%;
+    margin: 0 auto;
+    background-color: red;
+    color: white;
+    text-align: center;
+    height: 30px;
+}
+.formbox {
+    height: 85px;
+    align-content: center;
+    padding: 50px 0 10px 0;
+    position: static;
+}
+#last_email {
+    background-color: rgb(240, 200, 99);
+    font-weight: bold;
 }

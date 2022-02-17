@@ -8,23 +8,23 @@
     <title>Success Page</title>
 </head>
 <body>
-    <div>Yea.</div>
     <div class="box_success">
-        <h3>The email address ({{emails.email}}) you entered is valid. Enjoy the list of others below.</h3>
+        <h3>The email address <span id="last_email">( {{ last_email.email }} )</span> you entered is valid. Enjoy reading the list of others, below. Fascinating.</h3>
     </div>
     <div>
-        <h2>Email List:</h2>
         <table>
             <tr>
                 <th>Email Address</td>
-                <th>Create At</td>
+                <th>Created At</td>
             </tr>
+                {% for email in emails %}
             <tr>
-                <td>{{ emails.email}}</td>
-                <td>{{emails.create_at}}</td>
+                <td>{{email.email}}</td>
+                <td>{{email.created_at}}</td>
             </tr>
+                {% endfor %}
         </table>
     </div>
-    
+    <a href="/">Home</a>
 </body>
 </html>

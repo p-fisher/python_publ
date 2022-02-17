@@ -5,18 +5,18 @@ from ..models import email
 
 @app.route('/')
 def index():
-    return redirect('/index.html')
+    return render_template('index.html')
 
 
 @app.route('/process', methods=['POST'])
 def add_email(): #or should this be def index():
     # if there are errors:
     # We call the staticmethod on email model to validate
-    if not email.validate_email(request.form):
+    if not email.Email.validate_email(request.form):
         # redirect to the route where the email form is rendered.
         return redirect('/')
     # else no errors:
-    email.save(request.form)
+    email.Email.save(request.form)
     return redirect("/success")
     # return render_template('index.html')
 
@@ -29,7 +29,7 @@ def add_email(): #or should this be def index():
 
 @app.route('/success')
 def success():
-    return render_template('success.html', emails=email.get_all())
+    return render_template('success.html', emails=email.Email.get_all(), last_email=email.Email.get_last())
 
 
 @app.errorhandler(404)

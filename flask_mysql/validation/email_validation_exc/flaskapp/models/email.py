@@ -1,8 +1,11 @@
-from email_validation_exc.config.mysqlconnection import connectToMySQL
+from flaskapp.config.mysqlconnection import connectToMySQL
 import re	# the regex module
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$') 
+from flask import flash
 
-
-class Emails:
+class Email:
+    db = "email_validn_schema"
+    
     def __init__(self,data):
         self.id = data['id']
         self.email = data['email']
@@ -10,18 +13,17 @@ class Emails:
         self.updated_at = data['updated_at']
         
     # create a regular expression object that we'll use later   
-    EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$') 
     @staticmethod
     def validate_email(email):
         is_valid = True # we assume this is true
-        if not EMAIL_REGEX.match(Emails['email']): 
-            flash("Invalid email address!")
+        if not EMAIL_REGEX.match(email['email']): 
+            flash("")
             is_valid = False
         return is_valid
     
     @classmethod
     def get_all(cls):
-        query= "SELECT * FROM emails;"
+        query = "SELECT * FROM emails;"
         results = connectToMySQL(cls.db).query_db(query)
         emails = []
         for row in results:
@@ -32,6 +34,21 @@ class Emails:
     def save(cls,data):
         query = "INSERT INTO emails (email, created_at) VALUES (%(email)s, NOW());"
         return connectToMySQL(cls.db).query_db(query,data)
+    
+    @classmethod
+    def get_last(cls):
+        query = "SELECT * FROM emails WHERE id = (SELECT MAX(id) FROM emails);"
+        last_email = connectToMySQL(cls.db).query_db(query)
+        return last_email
+
+    # @classmethod
+    # def get_last(cls):
+    #     query = "SELECT * FROM emails WHERE id = (SELECT MAX(id) FROM emails);"
+    #     results = connectToMySQL(cls.db).query_db(query)
+    #     last_email = []
+    #     for row in results:
+    #         last_email.append( cls(row) )
+    #     return last_email
 
 
 
