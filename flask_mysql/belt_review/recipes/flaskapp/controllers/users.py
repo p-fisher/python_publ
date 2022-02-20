@@ -1,6 +1,7 @@
 from flaskapp import app
 from flask import render_template, redirect, request, session
 from flaskapp.models.user import User
+from flaskapp.models.recipe import Recipe
 from flask import flash
 from flask_bcrypt import Bcrypt
 
