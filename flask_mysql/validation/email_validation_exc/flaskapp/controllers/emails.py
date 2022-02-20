@@ -29,7 +29,7 @@ def add_email(): #or should this be def index():
 
 @app.route('/success')
 def success():
-    return render_template('success.html', emails=email.Email.get_all(), last_email=email.Email.get_all())
+    return render_template('success.html', emails=email.Email.get_all(), last_email=email.Email.get_last())
 
 
 @app.errorhandler(404)

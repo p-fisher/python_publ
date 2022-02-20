@@ -39,7 +39,11 @@ class Email:
     def get_last(cls):
         query = "SELECT * FROM emails WHERE id = (SELECT MAX(id) FROM emails);"
         last_email = connectToMySQL(cls.db).query_db(query)
-        return last_email
+        this_email = cls(last_email[0])
+        return this_email
+        # return cls(last_email[0])
+
+
 
     # @classmethod
     # def get_last(cls):
