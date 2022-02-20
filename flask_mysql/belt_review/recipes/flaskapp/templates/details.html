@@ -24,10 +24,22 @@
                 </form> -->
             </div>
         </div>
-        <h2>{{ recipe.r_name }}</h2>
+        <h2>" {{ recipe.r_name }} "</h2>
 
         <div class="recipe_detail">
-            
+            <div>
+                <h3>Description:</h3>
+                <h3>Under 30 minutes:</h3>
+                <h3>Instructions:</h3>
+                <h3>Date Made:</h3>
+            </div>
+            <div>
+                <p>{{recipe.r_info}}</p>
+                <p>{{recipe.under30}}</p>
+                <p>{{recipe.instructions}}</p>
+                <p>{{recipe.last_made}}</p>
+            </div>
+
         </div>
 
         <!-- <div>
