@@ -8,6 +8,46 @@
     <title>Details View</title>
 </head>
 <body>
+    <div class="wrapper">
+        <div class="topbar_div">
+            <div class="title_div">
+                <h1>Welcome, {{user.f_name}}!</h1>
+            </div>
+            <div class="nav_div">
+                <ul>
+                    <li><a href="#">Create</a></li>
+                    <li><a href="/exit">Logout</a></li>
+                </ul>
+                <!-- <a href="/">Home</a>
+                <form action="/exit" method="post">
+                    <button type="submit">Logout</button>
+                </form> -->
+            </div>
+        </div>
+        <h2>{{ recipe.r_name }}</h2>
+
+        <div class="recipe_detail">
+            
+        </div>
+
+        <!-- <div>
+            <p>Here are the recipes in the system.</p>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Under 30 Minutes</th>
+                    <th>Actions</th>
+                </tr>
+                    {% for recipe in recipes %}
+                <tr>
+                    <td>{{recipe.r_name}}</td>
+                    <td>{{recipe.under30}}</td>
+                    <td><a href="#">View</a> | <a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                    {% endfor %}
+            </table>
+        </div> -->
     
+    </div>
 </body>
 </html>

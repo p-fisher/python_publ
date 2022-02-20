@@ -8,7 +8,26 @@ from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 
-@app.route('/')
+
+@app.route('/details/<int:num>')
+def show_recipe(num):
+    data = {
+        # "id": session['id'] # how can i have two called id here? there's the session id and the id as num
+        "id": num
+    }
+    user=User.get_by_id(data)
+    this_recipe=Recipe.get_by_id(data)
+    return render_template('details.html',user=user,recipe=this_recipe)
+
+"""@app.route('/dojos/<int:num>')
+def detail_dojo(num):
+    id = {
+        "id": num
+    }
+    this_dojo = Dojo.get_one_id(id)
+    return render_template("dojo_show.html", dojo = this_dojo)"""
+
+"""@app.route('/')
 def index():
     return render_template('index.html')
 
@@ -69,4 +88,4 @@ def sign_out():
 
 @app.errorhandler(404)
 def not_found(e): # inbuilt function which takes error as parameter
-    return f"That's a no-go on the url. Sorry." # defining function
+    return f"That's a no-go on the url. Sorry." # defining function"""

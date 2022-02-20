@@ -45,10 +45,10 @@ class User:
         if not EMAIL_REGEX.match(user['email']):
             flash("Invalid Email!!!","register")
             is_valid=False
-        if len(user['f_name']) < 3:
+        if len(user['f_name']) < 2:
             flash("First name must be at least 3 characters","register")
             is_valid= False
-        if len(user['l_name']) < 3:
+        if len(user['l_name']) < 2:
             flash("Last name must be at least 3 characters","register")
             is_valid= False
         # if len(user['pwd']) < 8:

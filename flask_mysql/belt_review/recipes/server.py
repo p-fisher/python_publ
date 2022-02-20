@@ -2,6 +2,7 @@ from flaskapp import app
 
 #every new controller file needs to be imported here
 from flaskapp.controllers import users
+from flaskapp.controllers import recipes
 
 app.secret_key="Get into your handbasket and head south."
 

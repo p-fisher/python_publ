@@ -32,11 +32,11 @@
                     <th>Under 30 Minutes</th>
                     <th>Actions</th>
                 </tr>
-                    {% for item in collection %}
+                    {% for recipe in recipes %}
                 <tr>
-                    <td>{{name}}</td>
-                    <td>{{under30}}</td>
-                    <td><a href="#">View</a> | <a href="#">Edit</a> | <a href="#">Delete</a></td>
+                    <td>{{recipe.r_name}}</td>
+                    <td>{{recipe.under30}}</td>
+                    <td><a href="/details/{{ recipe.id }}">View</a> | <a href="#">Edit</a> | <a href="#">Delete</a></td>
                 </tr>
                     {% endfor %}
             </table>
