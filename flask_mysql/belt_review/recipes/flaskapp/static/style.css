@@ -63,7 +63,7 @@ li {
     width: 100px;
     height: 36px;
    /* line-height: 36px; */
-    margin-right: 10px;
+    margin-left: 15px;
 
 }
 li a {
@@ -146,7 +146,7 @@ padding: 8px;
 /* RECIPE */
 .recipe_detail {
     border: 1px solid black;
-    width: 100%;
+    width: 94%;
     padding: 20px;
     background-color:antiquewhite;
     /* display: flex; */

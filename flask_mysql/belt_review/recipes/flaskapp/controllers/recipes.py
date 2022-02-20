@@ -19,6 +19,9 @@ def show_recipe(num):
     this_recipe=Recipe.get_by_id(data)
     return render_template('details.html',user=user,recipe=this_recipe)
 
+
+
+
 """@app.route('/dojos/<int:num>')
 def detail_dojo(num):
     id = {
