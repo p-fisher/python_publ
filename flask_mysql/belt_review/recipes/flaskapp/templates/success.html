@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Summary View</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="topbar_div">
+            <div class="title_div">
+                <h1>Welcome, {{user.f_name}}!</h1>
+            </div>
+            <div class="nav_div">
+                <ul>
+                    <li><a href="/exit">Logout</a></li>
+                    <li><a href="/">Home</a></li>
+                </ul>
+                <!-- <a href="/">Home</a>
+                <form action="/exit" method="post">
+                    <button type="submit">Logout</button>
+                </form> -->
+            </div>
+        </div>
+        <div>
+            <p>Here are the recipes in the system.</p>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Under 30 Minutes</th>
+                    <th>Actions</th>
+                </tr>
+                    {% for item in collection %}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{under30}}</td>
+                    <td><a href="#">View</a> | <a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                    {% endfor %}
+            </table>
+        </div>
+    
+    </div>
+
+</body>
+</html>
