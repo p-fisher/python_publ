@@ -24,42 +24,26 @@
                 </form> -->
             </div>
         </div>
-        <h2>" {{ recipe.r_name }} "</h2>
+        <h2>This recipe: "{{ recipe.r_name }}"</h2>
 
         <div class="recipe_detail">
-            <div>
-                <h3>Description:</h3>
-                <h3>Under 30 minutes:</h3>
-                <h3>Instructions:</h3>
-                <h3>Date Made:</h3>
+            <div class="detail_row">
+                <div class="detail_left"><p>Description:</p></div>
+                <div class="detail_right"><p>{{recipe.r_info}}</p></div>
             </div>
-            <div>
-                <p>{{recipe.r_info}}</p>
-                <p>{{recipe.under30}}</p>
-                <p>{{recipe.instructions}}</p>
-                <p>{{recipe.last_made}}</p>
+            <div class="detail_row">
+                <div class="detail_left"><p>Under 30 minutes:</p></div>
+                <div class="detail_right"><p>{{recipe.under30}}</p></div>
             </div>
-
+            <div class="detail_row">
+                <div class="detail_left"><p>Instructions:</p></div>
+                <div class="detail_right"><p>{{recipe.instructions}}</p></div>
+            </div>
+            <div class="detail_row">
+                <div class="detail_left"><p>Date Last Made:</p></div>
+                <div class="detail_right"><p>{{recipe.last_made}}</p></div>
+            </div>
         </div>
-
-        <!-- <div>
-            <p>Here are the recipes in the system.</p>
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Under 30 Minutes</th>
-                    <th>Actions</th>
-                </tr>
-                    {% for recipe in recipes %}
-                <tr>
-                    <td>{{recipe.r_name}}</td>
-                    <td>{{recipe.under30}}</td>
-                    <td><a href="#">View</a> | <a href="#">Edit</a> | <a href="#">Delete</a></td>
-                </tr>
-                    {% endfor %}
-            </table>
-        </div> -->
-    
     </div>
 </body>
 </html>

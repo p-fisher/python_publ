@@ -148,9 +148,29 @@ padding: 8px;
     border: 1px solid black;
     width: 100%;
     padding: 20px;
-    display: flex;
+    background-color:antiquewhite;
+    /* display: flex; */
+    /* flex: 2; */
 }
-
+.detail_row {
+    display: flex;
+    /* vertical-align: top; */
+}
+.detail_left {
+    font-weight: 900;
+    text-align: right;
+    margin-right: 30px;
+    width: 22%;
+    align-items: top;
+    line-height: 22px;
+    /* display: flex; */
+}
+.detail_right {
+    font-weight: 100;
+    width: 78%;
+    align-items: top;
+    line-height: 22px;
+}
 
 /* OTHER */
 
