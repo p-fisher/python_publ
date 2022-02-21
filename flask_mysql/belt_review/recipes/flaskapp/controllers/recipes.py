@@ -9,86 +9,63 @@ bcrypt = Bcrypt(app)
 
 
 
-@app.route('/details/<int:num>')
-def show_recipe(num):
+@app.route('/details/<int:id>')
+def show_recipe(id):
     data = {
         # "id": session['id'] # how can i have two called id here? there's the session id and the id as num
-        "id": num
+        "id": id
     }
-    user=User.get_by_id(data)
+    # user=User.get_by_id(data)
     this_recipe=Recipe.get_by_id(data)
-    return render_template('details.html',user=user,recipe=this_recipe)
+    return render_template('details.html',recipe=this_recipe)
 
 
 
-
-"""@app.route('/dojos/<int:num>')
-def detail_dojo(num):
-    id = {
-        "id": num
-    }
-    this_dojo = Dojo.get_one_id(id)
-    return render_template("dojo_show.html", dojo = this_dojo)"""
-
-"""@app.route('/')
-def index():
-    return render_template('index.html')
+@app.route('/add')
+def new_recipe():
+    # if 'user_id' not in session:
+    #     return redirect('/logout')
+    # data = {
+    #     "id":session['user_id']
+    # }
+    return render_template('add_recipe.html')
 
 
-@app.route('/register', methods=['POST'])
-def register():
-
-    if not User.validate_register(request.form):
-        return redirect('/')
-
+@app.route('/edit/<int:id>')
+def edit_recipe(id):
     data = {
-        "f_name": request.form['f_name'],
-        "l_name": request.form['l_name'],
-        "email": request.form['email'],
-        # "pwd": request.form['pwd']
-        "pwd": bcrypt.generate_password_hash(request.form['pwd'])
+        "id": id
     }
-    id = User.register(data)
-    # session['f_name'] = request.form['f_name']
-    session['id'] = id
+    user_data = {
+        "id":session['user_id']
+    }
+    return render_template("edit_recipe.html",edit=Recipe.get_one(data),user=User.get_by_id(user_data))
+
+
+@app.route('/create/recipe',methods=['POST'])
+def create_recipe():
+    # if 'user_id' not in session:
+    #     return redirect('/logout')
+    # if not Recipe.validate_recipe(request.form):
+    #     return redirect('/new/recipe')
+    data = {
+        "r_name": request.form["r_name"],
+        "r_info": request.form["r_info"],
+        "instructions": request.form["instructions"],
+        "under30": request.form["under30"],
+        "last_made": request.form["last_made"],
+        # "user_id": session["user_id"]
+    }
+    Recipe.add_recipe(data)
     return redirect('/success')
 
 
-
-@app.route('/sign_in', methods=['POST'])
-def sign_in():
-
-    user = User.sign_in(request.form)
-
-    if not user:
-        flash("Invalid Email","sign_in")
-        return redirect('/')
-    if not bcrypt.check_password_hash(user.pwd, request.form['pwd']):
-        flash("Invalid Password","sign_in")
-        return redirect('/')
-    # session['f_name'] = request.form['f_name']
-    session['id'] = user.id
-    return redirect('/success')
+# @app.route('/exit', methods=['POST'])
+# def sign_out():
+#     session.clear()
+#     return redirect('/')
 
 
-@app.route('/success')
-def made_it():
-    # if 'f_name' not in session:
-    #     return redirect('/')
-    data = {
-        "id": session['id']
-    }
-    user=User.get_by_id(data)
-    recipes=Recipe.get_all()
-    return render_template('success.html',user=user,recipes=recipes)
-
-
-@app.route('/exit', methods=['POST'])
-def sign_out():
-    session.clear()
-    return redirect('/')
-
-
-@app.errorhandler(404)
-def not_found(e): # inbuilt function which takes error as parameter
-    return f"That's a no-go on the url. Sorry." # defining function"""
+# @app.errorhandler(404)
+# def not_found(e): # inbuilt function which takes error as parameter
+#     return f"That's a no-go on the url. Sorry." # defining function"""

@@ -13,3 +13,4 @@ UPDATE recipes SET instructions = 'take a slice of white bread, dunk in water, s
 ALTER TABLE recipes change under30 under30 varchar(3);
 
 UPDATE recipes SET under30 = 'Yes' WHERE id = 1;
+

@@ -97,7 +97,7 @@ li a:hover {
     padding: 20px;
     /* align-items: center; */
 }
-#form2{
+#form2 {
     width: 320px;
     /* align-content: left; */
     text-align: left;
@@ -111,7 +111,7 @@ li a:hover {
     background-color: rgb(240, 200, 99);
     font-weight: bold;
 }
-input {
+input[type=text] {
     margin: 5px 0 20px 0;
     width: 97%;
     height: 25px;
@@ -168,6 +168,35 @@ padding: 8px;
 .detail_right {
     font-weight: 100;
     width: 78%;
+    align-items: top;
+    line-height: 22px;
+}
+
+/* ADD */
+.add_form {
+    border: 1px solid black;
+    width: 94%;
+    padding: 20px;
+    background-color:antiquewhite;
+    /* display: flex; */
+    /* flex: 2; */
+}
+.add_row {
+    display: flex;
+    /* vertical-align: top; */
+}
+.add_left {
+    /* font-weight: 900; */
+    /* text-align: right; */
+    margin-right: 50px;
+    width: 40%;
+    align-items: top;
+    line-height: 22px;
+    /* display: flex; */
+}
+.add_right {
+    /* font-weight: 100; */
+    width: 45%;
     align-items: top;
     line-height: 22px;
 }

@@ -61,4 +61,29 @@ new_edit\
 \cb3             flash(\cf8 \strokec8 "Passwords don't match"\cf2 \strokec2 ,\cf8 \strokec8 "register"\cf2 \strokec2 )\cb1 \
 \cb3         \cf9 \strokec9 return\cf2 \strokec2  \cf7 \strokec7 is_valid\cf2 \cb1 \strokec2 \
 \
+\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf4 \cb3 \strokec4 @\cf7 \strokec7 app\cf4 \strokec4 .route\cf2 \strokec2 (\cf8 \strokec8 '/details/new'\cf2 \strokec2 , \cf7 \strokec7 methods\cf2 \strokec2 =[\cf8 \strokec8 'POST'\cf2 \strokec2 ])\cb1 \
+\cf12 \cb3 \strokec12 # def show_recipe(num):\cf2 \cb1 \strokec2 \
+\cf12 \cb3 \strokec12 #     data = \{\cf2 \cb1 \strokec2 \
+\cf12 \cb3 \strokec12 #         # "id": session['id'] # how can i have two called id here? there's the session id and the id as num\cf2 \cb1 \strokec2 \
+\cf12 \cb3 \strokec12 #         "id": num\cf2 \cb1 \strokec2 \
+\cf12 \cb3 \strokec12 #     \}\cf2 \cb1 \strokec2 \
+\cb3     \cf7 \strokec7 user\cf2 \strokec2 =\cf5 \strokec5 User\cf2 \strokec2 .\cf4 \strokec4 get_by_id\cf2 \strokec2 (data)\cb1 \
+\cb3     \cf12 \strokec12 # this_recipe=Recipe.get_by_id(data)\cf2 \cb1 \strokec2 \
+\cb3     \cf9 \strokec9 return\cf2 \strokec2  render_template(\cf8 \strokec8 'add_edit.html'\cf2 \strokec2 ,\cf7 \strokec7 user\cf2 \strokec2 =\cf7 \strokec7 user\cf2 \strokec2 )\cb1 \
+\
+\
+\cf4 \cb3 \strokec4 @app.route\cf2 \strokec2 (\cf8 \strokec8 '/add'\cf2 \strokec2 )\cb1 \
+\cf6 \cb3 \strokec6 def\cf2 \strokec2  \cf4 \strokec4 add_recipe\cf2 \strokec2 ():\cb1 \
+\
+\
+\cf4 \cb3 \strokec4 @app.route\cf2 \strokec2 (\cf8 \strokec8 '/edit/<int:num>'\cf2 \strokec2 )\cb1 \
+\cf6 \cb3 \strokec6 def\cf2 \strokec2  \cf4 \strokec4 edit_recipe\cf2 \strokec2 (\cf7 \strokec7 num\cf2 \strokec2 ):\cb1 \
+\cb3     data = \{\cb1 \
+\cb3         \cf8 \strokec8 "id"\cf2 \strokec2 : num\cb1 \
+\cb3     \}\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \
 }

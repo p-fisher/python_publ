@@ -1,7 +1,7 @@
 from flaskapp.config.mysqlconnection import connectToMySQL
-import re	# the regex module
-EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
-PWD_REGEX = re.compile(r'^[?=.A-Z0-9][?=.0-9A-Z].{6,}$')
+# import re	# the regex module
+# EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+# PWD_REGEX = re.compile(r'^[?=.A-Z0-9][?=.0-9A-Z].{6,}$')
 
 from flask import flash
 
@@ -21,7 +21,7 @@ class Recipe:
 
     @classmethod
     def add_recipe(cls,data):
-        query = "INSERT INTO recipes (r_name,instructions,r_info,under30,last_made,created_at) VALUES (%(r_name)s, %(instructions)s, %(r_info)s, %(under30)s, %(last_made)s, NOW());"
+        query = "INSERT INTO recipes (r_name,instructions,r_info,under30,last_made,created_at,user_id) VALUES (%(r_name)s, %(instructions)s, %(r_info)s, %(under30)s, %(last_made)s, NOW(),'1');"
         print(data)
         return connectToMySQL(cls.db).query_db(query,data)
         #return from db you get is just the id
@@ -31,6 +31,7 @@ class Recipe:
     def get_by_id(cls,data):
         query = "SELECT * FROM recipes WHERE id = %(id)s;"
         results = connectToMySQL(cls.db).query_db(query,data)
+        print(results)
         return cls(results[0])
 
 
