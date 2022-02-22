@@ -172,7 +172,7 @@ padding: 8px;
     line-height: 22px;
 }
 
-/* ADD */
+/* ADD or EDIT */
 .add_form {
     border: 1px solid black;
     width: 94%;
@@ -181,6 +181,15 @@ padding: 8px;
     /* display: flex; */
     /* flex: 2; */
 }
+.edit_form {
+    border: 1px solid black;
+    width: 94%;
+    padding: 20px;
+    background-color:lightblue;
+    /* display: flex; */
+    /* flex: 2; */
+}
+
 .add_row {
     display: flex;
     /* vertical-align: top; */

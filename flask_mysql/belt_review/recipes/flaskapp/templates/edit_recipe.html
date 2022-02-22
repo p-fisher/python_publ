@@ -11,7 +11,7 @@
     <div class="wrapper">
         <div class="topbar_div">
             <div class="title_div">
-                <h1>Add new recipe</h1>
+                <h1>Edit a recipe</h1>
             </div>
             <div class="nav_div">
                 <ul>
@@ -25,24 +25,24 @@
             </div>
         </div>
         
-        <div class="add_form">
+        <div class="edit_form">
             <form action="/" method="post">
                 <div class="add_row">
-                    <div>
+                    <div class="add_left">
                         <label for="r_name">Recipe name:</label><br>
-                        <input type="text" id="r_name" name="r_name" value=""><br>
+                        <input type="text" id="r_name" name="r_name" value="{{ recipe.r_name }}"><br>
                     </div>    
-                    <div>
+                    <div class="add_right">
                         <label for="last_made">Date made:</label><br>
-                        <input type="date" id="last_made" name="last_made" value=""><br>
+                        <input type="date" id="last_made" name="last_made" value="{{ recipe.last_made }}"><br>
                     </div>
                 </div>
                 <div class="add_row">
-                    <div>
+                    <div class="add_left">
                         <p>Please provide a recipe description</p>
-                        <textarea name="Description" rows="5" cols="30">A delightful Summer treat</textarea>
+                        <textarea name="Description" rows="5" cols="33">{{ recipe.r_info }}</textarea>
                     </div>
-                    <div>
+                    <div class="add_right">
                         <p>Is time to completion 30 mins or less?</p>
                         <input type="radio" id="Yes" name="under30" value="Yes">
                         <label for="Yes">Yes</label><br>
@@ -51,12 +51,12 @@
                     </div>
                 </div>
                 <div class="add_row">
-                    <div>
+                    <div class="add_left">
                         <p>Please list recipe instructions</p>
-                        <textarea name="instructions" rows="10" cols="30">3000 character limit (about 500 words)</textarea></div>
+                        <textarea name="instructions" rows="10" cols="33">{{ recipe.instructions }}</textarea></div>
                     <div></div>
                 </div>
-                <button type="submit">Add!</button>
+                <p><button type="submit">Save</button></p>
 
         </div>
     </div>

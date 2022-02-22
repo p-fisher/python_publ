@@ -15,7 +15,7 @@ def show_recipe(id):
         # "id": session['id'] # how can i have two called id here? there's the session id and the id as num
         "id": id
     }
-    # user=User.get_by_id(data)
+    # user=User.get_by_id(data)                        # this breaks the page if selecting any but first recipe
     this_recipe=Recipe.get_by_id(data)
     return render_template('details.html',recipe=this_recipe)
 
@@ -26,27 +26,32 @@ def new_recipe():
     # if 'user_id' not in session:
     #     return redirect('/logout')
     # data = {
-    #     "id":session['user_id']
+    #     "id":session['user_id']                      # dont remember why i commented this out - did it break or did i decide to come back to it?
     # }
     return render_template('add_recipe.html')
 
 
-@app.route('/edit/<int:id>')
+@app.route('/edit_recipe/<int:id>')
 def edit_recipe(id):
     data = {
         "id": id
     }
-    user_data = {
-        "id":session['user_id']
-    }
-    return render_template("edit_recipe.html",edit=Recipe.get_one(data),user=User.get_by_id(user_data))
+    # user_data = {
+    #     "id":session['user_id']                          #this has to be off bc session stuff screwed up; this means the return below must ezclude user portion or it also will fail
+    # }
+    this_recipe=Recipe.get_by_id(data)
+    return render_template("edit_recipe.html",recipe=this_recipe)
+    # return render_template("edit_recipe.html",edit=Recipe.get_by_id(data))
+    # return render_template("edit_recipe.html",edit=Recipe.get_by_id(data),user=User.get_by_id(user_data))
+
+
 
 
 @app.route('/create/recipe',methods=['POST'])
 def create_recipe():
     # if 'user_id' not in session:
     #     return redirect('/logout')
-    # if not Recipe.validate_recipe(request.form):
+    # if not Recipe.validate_recipe(request.form):            # session stuff a mess save for later
     #     return redirect('/new/recipe')
     data = {
         "r_name": request.form["r_name"],
@@ -59,6 +64,15 @@ def create_recipe():
     Recipe.add_recipe(data)
     return redirect('/success')
 
+
+
+
+
+
+
+
+
+# having thse enabled in both controllers breaks the app
 
 # @app.route('/exit', methods=['POST'])
 # def sign_out():
