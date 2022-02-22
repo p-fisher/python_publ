@@ -15,35 +15,54 @@ def show_recipe(id):
         # "id": session['id'] # how can i have two called id here? there's the session id and the id as num
         "id": id
     }
-    # user=User.get_by_id(data)                        # this breaks the page if selecting any but first recipe
+    user_data = {
+        "id": session['id']
+    }
+    user=User.get_by_id(user_data)                        # this breaks the page if selecting any but first recipe
     this_recipe=Recipe.get_by_id(data)
-    return render_template('details.html',recipe=this_recipe)
+    return render_template('details.html',user=user,recipe=this_recipe)
 
 
 
 @app.route('/add')
 def new_recipe():
-    # if 'user_id' not in session:
-    #     return redirect('/logout')
+    # if 'id' not in session:
+    #     return redirect('/logout')           # used only in GET method routes
     # data = {
     #     "id":session['user_id']                      # dont remember why i commented this out - did it break or did i decide to come back to it?
     # }
     return render_template('add_recipe.html')
 
 
-@app.route('/edit_recipe/<int:id>')
-def edit_recipe(id):
+@app.route('/edit_load_recipe/<int:id>')
+def edit_load_recipe(id):
     data = {
         "id": id
     }
-    # user_data = {
-    #     "id":session['user_id']                          #this has to be off bc session stuff screwed up; this means the return below must ezclude user portion or it also will fail
-    # }
+    user_data = {
+        "id":session['id']                          #this has to be off bc session stuff screwed up; this means the return below must ezclude user portion or it also will fail
+    }
+    user=User.get_by_id(user_data)
     this_recipe=Recipe.get_by_id(data)
-    return render_template("edit_recipe.html",recipe=this_recipe)
+    return render_template("edit_recipe.html",user=user,recipe=this_recipe)
     # return render_template("edit_recipe.html",edit=Recipe.get_by_id(data))
     # return render_template("edit_recipe.html",edit=Recipe.get_by_id(data),user=User.get_by_id(user_data))
 
+
+
+@app.route('/edit_save_recipe', methods=['POST'])
+def edit_save_recipe():
+    data = {
+        "id": request.form['id'],
+        "r_name": request.form["r_name"],
+        "r_info": request.form["r_info"],
+        "instructions": request.form["instructions"],
+        "under30": request.form["under30"],
+        "last_made": request.form["last_made"],
+        # "user_id": session["id"]
+    }
+    Recipe.update(data)
+    return redirect('/success')
 
 
 

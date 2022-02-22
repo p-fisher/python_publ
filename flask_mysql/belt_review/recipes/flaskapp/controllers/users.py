@@ -61,7 +61,7 @@ def made_it():
     return render_template('success.html',user=user,recipes=recipes)
 
 
-@app.route('/exit', methods=['POST'])
+@app.route('/exit')
 def sign_out():
     session.clear()
     return redirect('/')
