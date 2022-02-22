@@ -26,7 +26,8 @@
         </div>
         
         <div class="edit_form">
-            <form action="/" method="post">
+            <form action="/edit_save_recipe" method="post">
+                <input type="hidden" id="id" name="id" value="{{ recipe.id }}">
                 <div class="add_row">
                     <div class="add_left">
                         <label for="r_name">Recipe name:</label><br>
@@ -40,10 +41,10 @@
                 <div class="add_row">
                     <div class="add_left">
                         <p>Please provide a recipe description</p>
-                        <textarea name="Description" rows="5" cols="33">{{ recipe.r_info }}</textarea>
+                        <textarea name="r_info" rows="5" cols="33">{{ recipe.r_info }}</textarea>
                     </div>
                     <div class="add_right">
-                        <p>Is time to completion 30 mins or less?</p>
+                        <p>Completion time less than 30 minutes</p>
                         <input type="radio" id="Yes" name="under30" value="Yes">
                         <label for="Yes">Yes</label><br>
                         <input type="radio" id="No" name="under30" value="No">
@@ -57,7 +58,7 @@
                     <div></div>
                 </div>
                 <p><button type="submit">Save</button></p>
-
+            </form>
         </div>
     </div>
 </body>

@@ -52,7 +52,7 @@ def sign_in():
 @app.route('/success')
 def made_it():
     # if 'f_name' not in session:
-    #     return redirect('/')
+    #     return redirect('/')                      #use 'id' not 'f_name'
     data = {
         "id": session['id']
     }
