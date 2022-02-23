@@ -9,7 +9,7 @@
 \cssrgb\c77255\c52549\c75294;\cssrgb\c70980\c80784\c65882;\cssrgb\c30980\c75686\c100000;\cssrgb\c41569\c60000\c33333;}
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
 {\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
-\margl1440\margr1440\vieww16800\viewh15620\viewkind0
+\margl1440\margr1440\vieww14440\viewh15620\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \
@@ -24,78 +24,77 @@
 \fs24 \cf0 \
 \
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f1\b\fs40 ===========================================================\
+\f1\b\fs40 \cf0 ===========================================================\
 \pard\pardeftab720\sl360\partightenfactor0
 
 \f2 \cf2 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec3 SCRAPS and THINGS THAT BROKE STUFF
+SCRAPS and THINGS THAT BROKE STUFF
 \f3\b0 \
 
 \fs24 \cf3 \
 \pard\pardeftab720\sl360\partightenfactor0
-\cf3 \cb4     \cf5 \strokec5 @\cf6 \strokec6 classmethod\cf3 \cb1 \strokec3 \
-\cb4     \cf7 \strokec7 def\cf3 \strokec3  \cf5 \strokec5 sign_in\cf3 \strokec3 (\cf8 \strokec8 cls\cf3 \strokec3 ,\cf8 \strokec8 data\cf3 \strokec3 ):\cb1 \
-\cb4         \cf8 \strokec8 query\cf3 \strokec3  = \cf9 \strokec9 "SELECT * FROM users WHERE email = \cf7 \strokec7 %(email)s\cf9 \strokec9 ;"\cf3 \cb1 \strokec3 \
-\cb4         \cf8 \strokec8 results\cf3 \strokec3  = \cf5 \strokec5 connectToMySQL\cf3 \strokec3 (\cf8 \strokec8 cls\cf3 \strokec3 .\cf8 \strokec8 db\cf3 \strokec3 ).\cf5 \strokec5 query_db\cf3 \strokec3 (\cf8 \strokec8 query\cf3 \strokec3 ,\cf8 \strokec8 data\cf3 \strokec3 )\cb1 \
-\cb4         \cf10 \strokec10 if\cf3 \strokec3  \cf5 \strokec5 len\cf3 \strokec3 (\cf8 \strokec8 results\cf3 \strokec3 ) < \cf11 \strokec11 1\cf3 \strokec3 :\cb1 \
-\cb4             \cf10 \strokec10 return\cf3 \strokec3  \cf7 \strokec7 False\cf3 \cb1 \strokec3 \
-\cb4         \cf10 \strokec10 return\cf3 \strokec3  \cf8 \strokec8 cls\cf3 \strokec3 (\cf8 \strokec8 results\cf3 \strokec3 [\cf11 \strokec11 0\cf3 \strokec3 ])\cb1 \
+\cf3 \cb4     \cf5 @\cf6 classmethod\cf3 \cb1 \
+\cb4     \cf7 def\cf3  \cf5 sign_in\cf3 (\cf8 cls\cf3 ,\cf8 data\cf3 ):\cb1 \
+\cb4         \cf8 query\cf3  = \cf9 "SELECT * FROM users WHERE email = \cf7 %(email)s\cf9 ;"\cf3 \cb1 \
+\cb4         \cf8 results\cf3  = \cf5 connectToMySQL\cf3 (\cf8 cls\cf3 .\cf8 db\cf3 ).\cf5 query_db\cf3 (\cf8 query\cf3 ,\cf8 data\cf3 )\cb1 \
+\cb4         \cf10 if\cf3  \cf5 len\cf3 (\cf8 results\cf3 ) < \cf11 1\cf3 :\cb1 \
+\cb4             \cf10 return\cf3  \cf7 False\cf3 \cb1 \
+\cb4         \cf10 return\cf3  \cf8 cls\cf3 (\cf8 results\cf3 [\cf11 0\cf3 ])\cb1 \
 \
 \
 \
-\cb4     \cf5 \strokec5 @\cf6 \strokec6 staticmethod\cf3 \cb1 \strokec3 \
-\cb4     \cf7 \strokec7 def\cf3 \strokec3  \cf5 \strokec5 validate_register\cf3 \strokec3 (\cf8 \strokec8 user\cf3 \strokec3 ):\cb1 \
-\cb4         \cf8 \strokec8 is_valid\cf3 \strokec3  = \cf7 \strokec7 True\cf3 \cb1 \strokec3 \
-\cb4         \cf8 \strokec8 query\cf3 \strokec3  = \cf9 \strokec9 "SELECT * FROM users WHERE email = \cf7 \strokec7 %(email)s\cf9 \strokec9 ;"\cf3 \cb1 \strokec3 \
-\cb4         \cf8 \strokec8 results\cf3 \strokec3  = \cf5 \strokec5 connectToMySQL\cf3 \strokec3 (User.db).\cf5 \strokec5 query_db\cf3 \strokec3 (\cf8 \strokec8 query\cf3 \strokec3 ,\cf8 \strokec8 user\cf3 \strokec3 )\cb1 \
-\cb4         \cf10 \strokec10 if\cf3 \strokec3  \cf5 \strokec5 len\cf3 \strokec3 (\cf8 \strokec8 results\cf3 \strokec3 ) >= \cf11 \strokec11 1\cf3 \strokec3 :\cb1 \
-\cb4             flash(\cf9 \strokec9 "Email already taken."\cf3 \strokec3 ,\cf9 \strokec9 "register"\cf3 \strokec3 )\cb1 \
-\cb4             \cf8 \strokec8 is_valid\cf3 \strokec3 =\cf7 \strokec7 False\cf3 \cb1 \strokec3 \
-\cb4         \cf10 \strokec10 if\cf3 \strokec3  \cf7 \strokec7 not\cf3 \strokec3  \cf12 \strokec12 EMAIL_REGEX\cf3 \strokec3 .\cf5 \strokec5 match\cf3 \strokec3 (\cf8 \strokec8 user\cf3 \strokec3 [\cf9 \strokec9 'email'\cf3 \strokec3 ]):\cb1 \
-\cb4             flash(\cf9 \strokec9 "Invalid Email!!!"\cf3 \strokec3 ,\cf9 \strokec9 "register"\cf3 \strokec3 )\cb1 \
-\cb4             \cf8 \strokec8 is_valid\cf3 \strokec3 =\cf7 \strokec7 False\cf3 \cb1 \strokec3 \
-\cb4         \cf10 \strokec10 if\cf3 \strokec3  \cf5 \strokec5 len\cf3 \strokec3 (\cf8 \strokec8 user\cf3 \strokec3 [\cf9 \strokec9 'f_name'\cf3 \strokec3 ]) < \cf11 \strokec11 3\cf3 \strokec3 :\cb1 \
-\cb4             flash(\cf9 \strokec9 "First name must be at least 3 characters"\cf3 \strokec3 ,\cf9 \strokec9 "register"\cf3 \strokec3 )\cb1 \
-\cb4             \cf8 \strokec8 is_valid\cf3 \strokec3 = \cf7 \strokec7 False\cf3 \cb1 \strokec3 \
-\cb4         \cf10 \strokec10 if\cf3 \strokec3  \cf5 \strokec5 len\cf3 \strokec3 (\cf8 \strokec8 user\cf3 \strokec3 [\cf9 \strokec9 'l_name'\cf3 \strokec3 ]) < \cf11 \strokec11 3\cf3 \strokec3 :\cb1 \
-\cb4             flash(\cf9 \strokec9 "Last name must be at least 3 characters"\cf3 \strokec3 ,\cf9 \strokec9 "register"\cf3 \strokec3 )\cb1 \
-\cb4             \cf8 \strokec8 is_valid\cf3 \strokec3 = \cf7 \strokec7 False\cf3 \cb1 \strokec3 \
-\cb4         \cf13 \strokec13 # if len(user['pwd']) < 8:\cf3 \cb1 \strokec3 \
-\cb4         \cf13 \strokec13 #     flash("Password must be at least 8 characters","register")\cf3 \cb1 \strokec3 \
-\cb4         \cf13 \strokec13 #     is_valid= False\cf3 \cb1 \strokec3 \
-\cb4         \cf10 \strokec10 if\cf3 \strokec3  \cf7 \strokec7 not\cf3 \strokec3  \cf12 \strokec12 PWD_REGEX\cf3 \strokec3 .\cf5 \strokec5 match\cf3 \strokec3 (\cf8 \strokec8 user\cf3 \strokec3 [\cf9 \strokec9 'pwd'\cf3 \strokec3 ]):\cb1 \
-\cb4             flash(\cf9 \strokec9 "Password must contain 1 cap, 1 num, and be 8+ characters long."\cf3 \strokec3 ,\cf9 \strokec9 "register"\cf3 \strokec3 )\cb1 \
-\cb4             \cf8 \strokec8 is_valid\cf3 \strokec3 =\cf7 \strokec7 False\cf3 \cb1 \strokec3 \
-\cb4         \cf10 \strokec10 if\cf3 \strokec3  \cf8 \strokec8 user\cf3 \strokec3 [\cf9 \strokec9 'pwd'\cf3 \strokec3 ] != \cf8 \strokec8 user\cf3 \strokec3 [\cf9 \strokec9 'p_check'\cf3 \strokec3 ]:\cb1 \
-\cb4             flash(\cf9 \strokec9 "Passwords don't match"\cf3 \strokec3 ,\cf9 \strokec9 "register"\cf3 \strokec3 )\cb1 \
-\cb4         \cf10 \strokec10 return\cf3 \strokec3  \cf8 \strokec8 is_valid\cf3 \cb1 \strokec3 \
+\cb4     \cf5 @\cf6 staticmethod\cf3 \cb1 \
+\cb4     \cf7 def\cf3  \cf5 validate_register\cf3 (\cf8 user\cf3 ):\cb1 \
+\cb4         \cf8 is_valid\cf3  = \cf7 True\cf3 \cb1 \
+\cb4         \cf8 query\cf3  = \cf9 "SELECT * FROM users WHERE email = \cf7 %(email)s\cf9 ;"\cf3 \cb1 \
+\cb4         \cf8 results\cf3  = \cf5 connectToMySQL\cf3 (User.db).\cf5 query_db\cf3 (\cf8 query\cf3 ,\cf8 user\cf3 )\cb1 \
+\cb4         \cf10 if\cf3  \cf5 len\cf3 (\cf8 results\cf3 ) >= \cf11 1\cf3 :\cb1 \
+\cb4             flash(\cf9 "Email already taken."\cf3 ,\cf9 "register"\cf3 )\cb1 \
+\cb4             \cf8 is_valid\cf3 =\cf7 False\cf3 \cb1 \
+\cb4         \cf10 if\cf3  \cf7 not\cf3  \cf12 EMAIL_REGEX\cf3 .\cf5 match\cf3 (\cf8 user\cf3 [\cf9 'email'\cf3 ]):\cb1 \
+\cb4             flash(\cf9 "Invalid Email!!!"\cf3 ,\cf9 "register"\cf3 )\cb1 \
+\cb4             \cf8 is_valid\cf3 =\cf7 False\cf3 \cb1 \
+\cb4         \cf10 if\cf3  \cf5 len\cf3 (\cf8 user\cf3 [\cf9 'f_name'\cf3 ]) < \cf11 3\cf3 :\cb1 \
+\cb4             flash(\cf9 "First name must be at least 3 characters"\cf3 ,\cf9 "register"\cf3 )\cb1 \
+\cb4             \cf8 is_valid\cf3 = \cf7 False\cf3 \cb1 \
+\cb4         \cf10 if\cf3  \cf5 len\cf3 (\cf8 user\cf3 [\cf9 'l_name'\cf3 ]) < \cf11 3\cf3 :\cb1 \
+\cb4             flash(\cf9 "Last name must be at least 3 characters"\cf3 ,\cf9 "register"\cf3 )\cb1 \
+\cb4             \cf8 is_valid\cf3 = \cf7 False\cf3 \cb1 \
+\cb4         \cf13 # if len(user['pwd']) < 8:\cf3 \cb1 \
+\cb4         \cf13 #     flash("Password must be at least 8 characters","register")\cf3 \cb1 \
+\cb4         \cf13 #     is_valid= False\cf3 \cb1 \
+\cb4         \cf10 if\cf3  \cf7 not\cf3  \cf12 PWD_REGEX\cf3 .\cf5 match\cf3 (\cf8 user\cf3 [\cf9 'pwd'\cf3 ]):\cb1 \
+\cb4             flash(\cf9 "Password must contain 1 cap, 1 num, and be 8+ characters long."\cf3 ,\cf9 "register"\cf3 )\cb1 \
+\cb4             \cf8 is_valid\cf3 =\cf7 False\cf3 \cb1 \
+\cb4         \cf10 if\cf3  \cf8 user\cf3 [\cf9 'pwd'\cf3 ] != \cf8 user\cf3 [\cf9 'p_check'\cf3 ]:\cb1 \
+\cb4             flash(\cf9 "Passwords don't match"\cf3 ,\cf9 "register"\cf3 )\cb1 \
+\cb4         \cf10 return\cf3  \cf8 is_valid\cf3 \cb1 \
 \
 \
 \
-\pard\pardeftab720\sl360\partightenfactor0
-\cf5 \cb4 \strokec5 @\cf8 \strokec8 app\cf5 \strokec5 .route\cf3 \strokec3 (\cf9 \strokec9 '/details/new'\cf3 \strokec3 , \cf8 \strokec8 methods\cf3 \strokec3 =[\cf9 \strokec9 'POST'\cf3 \strokec3 ])\cb1 \
-\cf13 \cb4 \strokec13 # def show_recipe(num):\cf3 \cb1 \strokec3 \
-\cf13 \cb4 \strokec13 #     data = \{\cf3 \cb1 \strokec3 \
-\cf13 \cb4 \strokec13 #         # "id": session['id'] # how can i have two called id here? there's the session id and the id as num\cf3 \cb1 \strokec3 \
-\cf13 \cb4 \strokec13 #         "id": num\cf3 \cb1 \strokec3 \
-\cf13 \cb4 \strokec13 #     \}\cf3 \cb1 \strokec3 \
-\cb4     \cf8 \strokec8 user\cf3 \strokec3 =\cf6 \strokec6 User\cf3 \strokec3 .\cf5 \strokec5 get_by_id\cf3 \strokec3 (data)\cb1 \
-\cb4     \cf13 \strokec13 # this_recipe=Recipe.get_by_id(data)\cf3 \cb1 \strokec3 \
-\cb4     \cf10 \strokec10 return\cf3 \strokec3  render_template(\cf9 \strokec9 'add_edit.html'\cf3 \strokec3 ,\cf8 \strokec8 user\cf3 \strokec3 =\cf8 \strokec8 user\cf3 \strokec3 )\cb1 \
+\cf5 \cb4 @\cf8 app\cf5 .route\cf3 (\cf9 '/details/new'\cf3 , \cf8 methods\cf3 =[\cf9 'POST'\cf3 ])\cb1 \
+\cf13 \cb4 # def show_recipe(num):\cf3 \cb1 \
+\cf13 \cb4 #     data = \{\cf3 \cb1 \
+\cf13 \cb4 #         # "id": session['id'] # how can i have two called id here? there's the session id and the id as num\cf3 \cb1 \
+\cf13 \cb4 #         "id": num\cf3 \cb1 \
+\cf13 \cb4 #     \}\cf3 \cb1 \
+\cb4     \cf8 user\cf3 =\cf6 User\cf3 .\cf5 get_by_id\cf3 (data)\cb1 \
+\cb4     \cf13 # this_recipe=Recipe.get_by_id(data)\cf3 \cb1 \
+\cb4     \cf10 return\cf3  render_template(\cf9 'add_edit.html'\cf3 ,\cf8 user\cf3 =\cf8 user\cf3 )\cb1 \
 \
 \
 \
-\cf5 \cb4 \strokec5 @app.route\cf3 \strokec3 (\cf9 \strokec9 '/add'\cf3 \strokec3 )\cb1 \
-\cf7 \cb4 \strokec7 def\cf3 \strokec3  \cf5 \strokec5 add_recipe\cf3 \strokec3 ():\cb1 \
+\cf5 \cb4 @app.route\cf3 (\cf9 '/add'\cf3 )\cb1 \
+\cf7 \cb4 def\cf3  \cf5 add_recipe\cf3 ():\cb1 \
 \
 \
 \
-\cf5 \cb4 \strokec5 @app.route\cf3 \strokec3 (\cf9 \strokec9 '/edit/<int:num>'\cf3 \strokec3 )\cb1 \
-\cf7 \cb4 \strokec7 def\cf3 \strokec3  \cf5 \strokec5 edit_recipe\cf3 \strokec3 (\cf8 \strokec8 num\cf3 \strokec3 ):\cb1 \
+\cf5 \cb4 @app.route\cf3 (\cf9 '/edit/<int:num>'\cf3 )\cb1 \
+\cf7 \cb4 def\cf3  \cf5 edit_recipe\cf3 (\cf8 num\cf3 ):\cb1 \
 \cb4     data = \{\cb1 \
-\cb4         \cf9 \strokec9 "id"\cf3 \strokec3 : num\cb1 \
+\cb4         \cf9 "id"\cf3 : num\cb1 \
 \cb4     \}\cb1 \
-\pard\pardeftab720\sl360\partightenfactor0
-\cf3 \
+\
 }
