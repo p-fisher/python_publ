@@ -36,7 +36,10 @@ class Recipe:
         #return from db you get is just the id
 
 
-
+    @classmethod
+    def delete(cls,data):
+        query = "DELETE FROM recipes WHERE id = %(id)s;"
+        return connectToMySQL(cls.db).query_db(query,data)
 
 
     @classmethod

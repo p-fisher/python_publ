@@ -32,7 +32,7 @@
                 <tr>
                     <td>{{recipe.r_name}}</td>
                     <td>{{recipe.under30}}</td>
-                    <td><a href="/details/{{ recipe.id }}">View</a> | <a href="/edit_load_recipe/{{ recipe.id }}">Edit</a> | <a href="#">Delete</a></td>
+                    <td><a href="/details/{{ recipe.id }}">View</a> | <a href="/edit_load_recipe/{{ recipe.id }}">Edit</a> | <a href="/delete/recipe/{{ recipe.id }}">Delete</a></td>
                 </tr>
                     {% endfor %}
             </table>
