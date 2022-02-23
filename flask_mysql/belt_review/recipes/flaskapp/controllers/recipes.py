@@ -30,7 +30,8 @@ def new_recipe():
     user_data = {
         "id":session['id']                      # dont remember why i commented this out - did it break or did i decide to come back to it?
     }
-    return render_template('add_recipe.html')
+    user=User.get_by_id(user_data)
+    return render_template('add_recipe.html', user=user)
 
 
 @app.route('/edit_load_recipe/<int:id>')
