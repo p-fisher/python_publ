@@ -11,6 +11,8 @@ bcrypt = Bcrypt(app)
 
 @app.route('/details/<int:id>')
 def show_recipe(id):
+    if 'id' not in session:
+        return redirect('/exit')           # used only in GET method routes
     data = {
         "id": id
     }
@@ -25,10 +27,10 @@ def show_recipe(id):
 
 @app.route('/add')
 def new_recipe():
-    # if 'id' not in session:
-    #     return redirect('/logout')           # used only in GET method routes
+    if 'id' not in session:
+        return redirect('/exit')           # used only in GET method routes
     user_data = {
-        "id":session['id']                      # dont remember why i commented this out - did it break or did i decide to come back to it?
+        "id":session['id']
     }
     user=User.get_by_id(user_data)
     return render_template('add_recipe.html', user=user)
@@ -36,6 +38,8 @@ def new_recipe():
 
 @app.route('/edit_load_recipe/<int:id>')
 def edit_load_recipe(id):
+    if 'id' not in session:
+        return redirect('/exit')           # used only in GET method routes
     data = {
         "id": id
     }
@@ -85,8 +89,8 @@ def create_recipe():
 
 @app.route('/delete/recipe/<int:id>')
 def delete_recipe(id):
-    # if 'user_id' not in session:
-    #     return redirect('/logout')
+    if 'id' not in session:
+        return redirect('/exit')           # used only in GET method routes
     data = {
         "id":id
     }

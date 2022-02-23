@@ -15,10 +15,8 @@ def index():
 
 @app.route('/register', methods=['POST'])
 def register():
-
     if not User.validate_register(request.form):
         return redirect('/')
-
     data = {
         "f_name": request.form['f_name'],
         "l_name": request.form['l_name'],
@@ -35,9 +33,7 @@ def register():
 
 @app.route('/sign_in', methods=['POST'])
 def sign_in():
-
     user = User.sign_in(request.form)
-
     if not user:
         flash("Invalid Email","sign_in")
         return redirect('/')
@@ -51,8 +47,8 @@ def sign_in():
 
 @app.route('/success')
 def made_it():
-    # if 'f_name' not in session:
-    #     return redirect('/')                      #use 'id' not 'f_name'
+    if 'id' not in session:
+        return redirect('/exit')           # used only in GET method routes
     data = {
         "id": session['id']
     }
