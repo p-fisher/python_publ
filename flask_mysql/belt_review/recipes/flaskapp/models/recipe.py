@@ -62,7 +62,25 @@ class Recipe:
 
 
 
-
+    @staticmethod
+    def validate_recipe(recipe):
+        is_valid = True
+        if len(recipe['r_name']) < 3:
+            is_valid = False
+            flash("Recipe name must be 3 or more in length.","recipe")
+        if len(recipe['instructions']) < 3:
+            is_valid = False
+            flash("Instructions must be 3 or more in length.","recipe")
+        if len(recipe['r_info']) < 3:
+            is_valid = False
+            flash("Description must be 3 or more in length (and less than 3000).","recipe")
+        if recipe['last_made'] == "":
+            is_valid = False
+            flash("Please enter a date","recipe")
+        # if recipe['under30'] == "":                                        # how to do this?!
+        #     is_valid = False
+        #     flash("Please indicate the if the recipe takes more or less than 30 minutes to complete.","recipe") 
+        return is_valid
 
 
 

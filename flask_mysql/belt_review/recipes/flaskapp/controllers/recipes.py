@@ -70,10 +70,10 @@ def edit_save_recipe():
 
 @app.route('/create/recipe',methods=['POST'])
 def create_recipe():
-    # if 'user_id' not in session:
+    # if 'user_id' not in session:            # session stuff a mess save for later
     #     return redirect('/logout')
-    # if not Recipe.validate_recipe(request.form):            # session stuff a mess save for later
-    #     return redirect('/new/recipe')
+    if not Recipe.validate_recipe(request.form):
+        return redirect('/add')
     data = {
         "r_name": request.form["r_name"],
         "r_info": request.form["r_info"],

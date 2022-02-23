@@ -143,6 +143,11 @@ text-align: left;
 padding: 8px;
 }
 
+/* ALERT (FLASH) */
+.div_flash {
+    background-color:maroon;
+    color: white;
+}
 
 
 /* RECIPE */
