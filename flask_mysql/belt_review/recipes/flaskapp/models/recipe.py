@@ -77,9 +77,9 @@ class Recipe:
         if recipe['last_made'] == "":
             is_valid = False
             flash("Please enter a date","recipe")
-        # if recipe['under30'] == "":                                        # how to do this?!
+        # if recipe['under30'] != "checked":                                        # how to do this?! also tried ==""
         #     is_valid = False
-        #     flash("Please indicate the if the recipe takes more or less than 30 minutes to complete.","recipe") 
+        #     flash("Please indicate if recipe takes more/less than 30 minutes to complete.","recipe") 
         return is_valid
 
 
